@@ -1,5 +1,14 @@
 /** @type {import('next').NextConfig} */
+const isGithubActions = process.env.GITHUB_ACTIONS || false;
+let basePath = '';
+if (isGithubActions) {
+  const repo = process.env.GITHUB_REPOSITORY ? process.env.GITHUB_REPOSITORY.split('/')[1] : 'Portfolio';
+  basePath = `/${repo}`;
+}
+
 const nextConfig = {
+  output: 'export',
+  basePath: process.env.NEXT_PUBLIC_BASE_PATH || basePath,
   reactStrictMode: true,
   images: {
     unoptimized: true,
