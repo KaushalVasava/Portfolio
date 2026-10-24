@@ -6,7 +6,6 @@ import {
   ArrowRight,
   Layers,
   ExternalLink,
-  Play,
   Mail,
   MapPin,
   Star,
@@ -16,11 +15,9 @@ import {
   Check
 } from 'lucide-react';
 import { portfolioData } from '@/data/portfolio';
-import AppReelModal from '@/components/AppReelModal';
 
 export default function Hero() {
   const { personal } = portfolioData;
-  const [reelOpen, setReelOpen] = useState(false);
   const [copied, setCopied] = useState(false);
 
   const handleCopyEmail = () => {
@@ -90,17 +87,6 @@ export default function Hero() {
                   <ArrowRight className="w-4 h-4" />
                 </a>
 
-                {/* Video / Demo Reel Button (Weblium-inspired) */}
-                <button
-                  type="button"
-                  onClick={() => setReelOpen(true)}
-                  className="inline-flex items-center justify-center gap-2 bg-surface-container-high border border-accent-lime/40 hover:border-accent-lime text-primary-text hover:text-accent-lime font-mono text-xs font-semibold px-5 py-3.5 rounded transition-all group shadow-sm active:scale-95"
-                >
-                  <span className="w-5 h-5 rounded-full bg-accent-lime/10 border border-accent-lime/30 flex items-center justify-center text-accent-lime group-hover:bg-accent-lime group-hover:text-surface-canvas transition-colors">
-                    <Play className="w-2.5 h-2.5 fill-current ml-0.5" />
-                  </span>
-                  <span>Watch App Reel</span>
-                </button>
 
                 {/* Explore Work */}
                 <a
@@ -156,8 +142,8 @@ export default function Hero() {
               </div>
             </div>
 
-            {/* Right Column: Circular Portrait + Floating Engineering Badges */}
-            <div className="lg:col-span-5 flex justify-center lg:justify-end items-center relative py-6">
+            {/* Right Column: Circular Portrait + Nameplate + Floating Engineering Badges */}
+            <div className="lg:col-span-5 flex flex-col justify-center items-center lg:items-center relative py-4">
               <div className="relative">
                 {/* Ambient Soft Glow Behind Avatar */}
                 <div className="absolute inset-0 bg-accent-lime/10 rounded-full blur-2xl scale-110 pointer-events-none" />
@@ -205,6 +191,17 @@ export default function Hero() {
                     </div>
                     <div className="font-mono text-[10px] text-secondary-text uppercase">Top Rated Pro</div>
                   </div>
+                </div>
+              </div>
+
+              {/* Name & Title directly below photo */}
+              <div className="mt-7 text-center z-10 flex flex-col items-center">
+                <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-primary-text">
+                  {personal.name}
+                </h2>
+                <div className="font-mono text-xs text-accent-lime uppercase tracking-wider mt-1 flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-accent-lime" />
+                  <span>{personal.title}</span>
                 </div>
               </div>
             </div>
@@ -293,9 +290,6 @@ export default function Hero() {
           </div>
         </div>
       </section>
-
-      {/* Interactive App Reel Modal */}
-      <AppReelModal isOpen={reelOpen} onClose={() => setReelOpen(false)} />
     </>
   );
 }
