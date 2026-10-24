@@ -1,6 +1,7 @@
 import { PortfolioData } from '@/types/portfolio';
+import { getAssetPath } from '@/utils/basePath';
 
-export const portfolioData: PortfolioData = {
+const rawPortfolioData: PortfolioData = {
   personal: {
     name: 'KAUSHAL VASAVA',
     title: 'Mobile Software Engineer',
@@ -943,3 +944,29 @@ export const portfolioData: PortfolioData = {
     }
   ]
 };
+
+const prefixPortfolioImages = (data: PortfolioData): PortfolioData => {
+  return {
+    ...data,
+    personal: {
+      ...data.personal,
+      photoUrl: data.personal.photoUrl ? getAssetPath(data.personal.photoUrl) : undefined,
+    },
+    projects: data.projects.map((p) => ({
+      ...p,
+      iconUrl: p.iconUrl ? getAssetPath(p.iconUrl) : undefined,
+      previewImageUrl: p.previewImageUrl ? getAssetPath(p.previewImageUrl) : undefined,
+      screenshotUrl: p.screenshotUrl ? getAssetPath(p.screenshotUrl) : undefined,
+    })),
+    articles: data.articles.map((a) => ({
+      ...a,
+      imageUrl: a.imageUrl ? getAssetPath(a.imageUrl) : undefined,
+    })),
+    testimonials: data.testimonials.map((t) => ({
+      ...t,
+      avatar: t.avatar ? getAssetPath(t.avatar) : undefined,
+    })),
+  };
+};
+
+export const portfolioData: PortfolioData = prefixPortfolioImages(rawPortfolioData);

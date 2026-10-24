@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Image from 'next/image';
 import { Mail, Clock, MapPin, Send, CheckCircle2, AlertCircle, Loader2, Terminal, BookOpen, Share2, ExternalLink, Users, ArrowRight } from 'lucide-react';
 import { portfolioData } from '@/data/portfolio';
+import { getAssetPath } from '@/utils/basePath';
 
 export default function Contact() {
   const { personal } = portfolioData;
@@ -188,7 +189,7 @@ export default function Contact() {
                     <div className="flex items-center gap-2.5 min-w-0">
                       <div className="w-8 h-8 rounded-lg overflow-hidden bg-surface-container-high border border-subtle-border shrink-0 relative">
                         <Image
-                          src="/images/platforms/upwork.png"
+                          src={getAssetPath('/images/platforms/upwork.png')}
                           alt="Upwork"
                           fill
                           className="object-contain p-1"
@@ -222,7 +223,7 @@ export default function Contact() {
                     <div className="flex items-center gap-2.5 min-w-0">
                       <div className="w-8 h-8 rounded-lg overflow-hidden bg-surface-container-high border border-subtle-border shrink-0 relative">
                         <Image
-                          src="/images/platforms/fiverr.png"
+                          src={getAssetPath('/images/platforms/fiverr.png')}
                           alt="Fiverr"
                           fill
                           className="object-contain p-1"
@@ -256,7 +257,7 @@ export default function Contact() {
                     <div className="flex items-center gap-2.5 min-w-0">
                       <div className="w-8 h-8 rounded-lg overflow-hidden bg-surface-container-high border border-subtle-border shrink-0 relative">
                         <Image
-                          src="/images/platforms/topmate.png"
+                          src={getAssetPath('/images/platforms/topmate.png')}
                           alt="Topmate"
                           fill
                           className="object-contain p-1"
@@ -290,7 +291,7 @@ export default function Contact() {
                     <div className="flex items-center gap-2.5 min-w-0">
                       <div className="w-8 h-8 rounded-lg overflow-hidden bg-surface-container-high border border-subtle-border shrink-0 relative">
                         <Image
-                          src="/images/platforms/buymeacoffee.png"
+                          src={getAssetPath('/images/platforms/buymeacoffee.png')}
                           alt="Buy Me a Coffee"
                           fill
                           className="object-contain p-1"
