@@ -8,9 +8,6 @@ import {
   ExternalLink,
   Mail,
   MapPin,
-  Star,
-  DownloadCloud,
-  CheckCircle2,
   Copy,
   Check
 } from 'lucide-react';
@@ -86,7 +83,6 @@ export default function Hero() {
                   <span>Let&apos;s Work Together</span>
                   <ArrowRight className="w-4 h-4" />
                 </a>
-
 
                 {/* Explore Work */}
                 <a
@@ -165,31 +161,6 @@ export default function Hero() {
                         KV
                       </div>
                     )}
-                  </div>
-                </div>
-
-                {/* Top Floating Badge: 100K+ Installs */}
-                <div className="absolute -top-3 -left-4 sm:-left-8 bg-card-surface/95 backdrop-blur-md border border-subtle-border rounded-xl px-3.5 py-2 shadow-xl flex items-center gap-2.5 animate-in fade-in slide-in-from-left duration-500">
-                  <div className="w-7 h-7 rounded-lg bg-accent-lime/10 border border-accent-lime/25 flex items-center justify-center text-accent-lime">
-                    <DownloadCloud className="w-4 h-4" />
-                  </div>
-                  <div>
-                    <div className="font-mono text-xs font-bold text-primary-text">100K+</div>
-                    <div className="font-mono text-[10px] text-secondary-text uppercase">Play Installs</div>
-                  </div>
-                </div>
-
-                {/* Bottom Floating Badge: 5.0 Rating */}
-                <div className="absolute -bottom-3 -right-4 sm:-right-6 bg-card-surface/95 backdrop-blur-md border border-subtle-border rounded-xl px-3.5 py-2 shadow-xl flex items-center gap-2.5 animate-in fade-in slide-in-from-right duration-500">
-                  <div className="w-7 h-7 rounded-lg bg-emerald-500/10 border border-emerald-500/25 flex items-center justify-center text-accent-lime">
-                    <Star className="w-4 h-4 fill-accent-lime" />
-                  </div>
-                  <div>
-                    <div className="font-mono text-xs font-bold text-accent-lime flex items-center gap-1">
-                      <span>5.0 ★</span>
-                      <CheckCircle2 className="w-3 h-3 text-accent-lime inline" />
-                    </div>
-                    <div className="font-mono text-[10px] text-secondary-text uppercase">Top Rated Pro</div>
                   </div>
                 </div>
               </div>
