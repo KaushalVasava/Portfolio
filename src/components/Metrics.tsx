@@ -7,7 +7,7 @@ export default function Metrics() {
   return (
     <section className="py-8 bg-surface-container-lowest border-b border-subtle-border/60">
       <div className="max-w-[1280px] mx-auto px-4 md:px-8">
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-6 md:gap-4 divide-y md:divide-y-0 md:divide-x divide-subtle-border/40">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-4 divide-y md:divide-y-0 md:divide-x divide-subtle-border/40">
           {metrics.map((metric, index) => (
             <div
               key={metric.label}

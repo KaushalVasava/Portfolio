@@ -50,16 +50,11 @@ export default function About() {
 
         {/* 2-Paragraph Narrative */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-sm sm:text-base text-secondary-text leading-relaxed mb-12 border-y border-subtle-border/60 py-8">
-          <div>
-            <p>
-              My focus in mobile engineering centers on building resilient production applications that feel invisible to the user — rendering within strict 16ms frame budgets, respecting battery life, and functioning seamlessly across intermittent network conditions.
-            </p>
-          </div>
-          <div>
-            <p>
-              Beyond production client engagements, I actively contribute to the broader mobile ecosystem. Through open-source repositories on GitHub, 1:1 engineering mentorship on Topmate, and technical publications on Medium read by over 50,000 developers, I continuously build and share in public.
-            </p>
-          </div>
+          {personal.aboutParagraphs.map((paragraph, idx) => (
+            <div key={idx}>
+              <p>{paragraph}</p>
+            </div>
+          ))}
         </div>
 
         {/* 3 Core Engineering Pillars */}
@@ -92,12 +87,7 @@ export default function About() {
         </div>
 
         {/* Simple Bottom CTA Row */}
-        <div className="mt-10 pt-6 flex flex-wrap items-center justify-between gap-4 border-t border-subtle-border/40 text-xs font-mono">
-          <div className="flex items-center gap-2 text-secondary-text">
-            <span className="w-1.5 h-1.5 rounded-full bg-accent-lime" />
-            <span>Available for native Android &amp; Kotlin Multiplatform contracts</span>
-          </div>
-
+        <div className="mt-10 pt-6 flex flex-wrap items-center justify-end gap-4 border-t border-subtle-border/40 text-xs font-mono">
           <div className="flex items-center gap-4">
             <a
               href="#contact"

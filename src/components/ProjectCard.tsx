@@ -85,31 +85,12 @@ export default function ProjectCard({ project, className = '' }: ProjectCardProp
               fill
               className={`${getImagePosition()} group-hover:scale-105 transition-transform duration-300`}
             />
-            {/* Subtle bottom gradient overlay for technical metadata label */}
-            <div className="absolute inset-0 bg-gradient-to-t from-surface-container-lowest/80 via-transparent to-transparent pointer-events-none" />
-            <div className="absolute bottom-2.5 left-3 right-3 flex justify-between items-center text-[10px] font-mono">
-              <span className="bg-background/90 text-secondary px-2 py-0.5 rounded border border-subtle-border/80 backdrop-blur-sm">
-                {project.engineStats?.label}
-              </span>
-              <span className="text-accent-lime font-medium bg-background/90 px-2 py-0.5 rounded border border-subtle-border/80 backdrop-blur-sm">
-                {project.engineStats?.value}
-              </span>
-            </div>
           </div>
         ) : (
-          <div className="h-48 w-full bg-surface-container-lowest rounded border border-subtle-border/30 mb-5 p-4 flex flex-col justify-between relative overflow-hidden group-hover:border-accent-lime/40 transition-colors">
-            <div className="flex justify-between items-center text-[10px] font-mono text-secondary-text">
-              <span>{project.engineStats?.label}</span>
-              <span className="text-accent-lime font-medium">{project.engineStats?.value}</span>
-            </div>
-            <div className="my-auto text-center">
-              <span className="text-sm font-semibold text-primary-text block">
-                {project.tagline}
-              </span>
-              <span className="text-[11px] text-secondary-text">
-                {project.engineStats?.sublabel}
-              </span>
-            </div>
+          <div className="h-48 w-full bg-surface-container-lowest rounded border border-subtle-border/30 mb-5 p-4 flex flex-col justify-center items-center text-center relative overflow-hidden group-hover:border-accent-lime/40 transition-colors">
+            <span className="text-sm font-semibold text-primary-text block">
+              {project.tagline}
+            </span>
           </div>
         )}
 

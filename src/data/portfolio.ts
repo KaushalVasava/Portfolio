@@ -5,7 +5,7 @@ const rawPortfolioData: PortfolioData = {
   personal: {
     name: 'KAUSHAL VASAVA',
     title: 'Mobile Software Engineer',
-    statusText: 'Available for Q2/Q3 Projects',
+    statusText: 'Available for New Projects',
     availableForWork: true,
     location: 'Surat, India · Global Remote',
     email: 'kaushalvasava.dev@gmail.com',
@@ -13,28 +13,27 @@ const rawPortfolioData: PortfolioData = {
     timezone: 'IST (UTC +5:30) · Global Overlap',
     headline: 'Building Mobile Products That People',
     headlineHighlight: 'Love to Use',
-    bio: 'Android-first Mobile Engineer with 4.5+ years building production applications used by 32K+ active users and over 100K+ installs. Specialize in Kotlin, Jetpack Compose, and Kotlin Multiplatform, with hands-on React Native experience.',
+    bio: 'Android-first Mobile Engineer with 4.5+ years of experience building production applications used by thousands of people.',
     aboutHeadline: 'Engineer by craft. Builder by habit.',
     aboutParagraphs: [
-      "My path in mobile engineering began with a passion for high-performance rendering and deterministic software. Over the past 4.5+ years, that focus has centered on designing resilient production architectures that scale smoothly across tens of thousands of active devices with unyielding crash reliability.",
-      "I believe the best mobile experiences feel invisible — rendering within 16ms frame budgets, respecting device battery and offline state, and delivering tactile, delightful micro-interactions. Whether engineering custom Canvas drawing engines in native Jetpack Compose or unifying business logic across platforms with Kotlin Multiplatform, I build with long-term maintainability in mind.",
-      "Beyond production client engagements, I am an active contributor to the broader mobile ecosystem. Through open-source repositories on GitHub, 1:1 engineering mentorship on Topmate, and technical publications on Medium read by over 50,000 developers, I continuously build, teach, and share in public."
+      "With over 4.5 years of mobile engineering experience, I specialize in building high-performance Android applications and cross-platform solutions using Kotlin Multiplatform and React Native. My focus is on delivering fluid UI, deterministic offline state, and crash-resilient architectures.",
+      "Alongside client systems, I have engineered and published 14+ independent apps on Google Play with over 100K+ installs. I actively contribute to the mobile community through open-source repositories and technical writing on Medium read by thousands of developers."
     ],
     pillars: [
       {
         icon: 'Rocket',
         title: 'Idea to Release',
-        description: 'Full lifecycle management: UI layout, local caches, CI/CD, and Play Console approval.'
+        description: 'Full lifecycle development from UI architecture and local persistence to Google Play Console release.'
       },
       {
         icon: 'Zap',
         title: 'Extreme Reliability',
-        description: 'Targeting >99.5% crash-free sessions and sub-16ms smooth UI render loops.'
+        description: 'Targeting >99.5% crash-free sessions and smooth sub-16ms UI render loops.'
       },
       {
         icon: 'BookOpen',
         title: 'Sharing in Public',
-        description: 'Demystifying Kotlin Coroutines, Jetpack Compose, and KMP through writing.'
+        description: 'Writing on Kotlin Coroutines, Jetpack Compose, and KMP read by 50K+ developers.'
       }
     ],
     photoUrl: '/images/profile.png',
@@ -67,43 +66,47 @@ const rawPortfolioData: PortfolioData = {
       label: 'Average Rating',
       highlight: false,
       hasRatingStar: true
-    },
-    {
-      value: '37+',
-      label: 'GitHub Repositories',
-      highlight: false
-    },
-    {
-      value: '5K+',
-      label: 'LinkedIn Network',
-      highlight: false
-    },
-    {
-      value: '3.6K+',
-      label: 'Medium Followers',
-      highlight: false
-    },
-    {
-      value: '50K+',
-      label: 'Article Views',
-      highlight: true
     }
   ],
   projects: [
+    // 1. Own Apps (6 apps)
+    {
+      id: 'documind',
+      name: 'PDF Scanner & Document Manager',
+      tagline: 'Document Scanner & OCR',
+      description: 'Scan to PDF, extract text with on-device OCR, and organize documents with folder management. Built with Jetpack Compose, CameraX, and ML Kit.',
+      badge: 'OWN APP · PLAY STORE',
+      badgeType: 'accent',
+      techStack: ['Jetpack Compose', 'ML Kit', 'CameraX', 'Kotlin'],
+      engineStats: {
+        label: 'Computer Vision',
+        value: 'ML Kit',
+        sublabel: 'Edge detection & perspective correction'
+      },
+      category: 'own',
+      mockupType: 'scanner',
+      actionUrl: 'https://play.google.com/store/apps/details?id=com.kaushalvasava.apps.documind',
+      actionText: 'Google Play',
+      actionType: 'playstore',
+      featured: true,
+      iconUrl: '/images/projects/documind_icon.png',
+      previewImageUrl: '/images/projects/documind_feature.png',
+      screenshotUrl: '/images/projects/documind_shot.png'
+    },
     {
       id: 'paint',
       name: 'Paint — Sketchbook & Drawing',
-      tagline: 'Custom Canvas API Pipeline',
+      tagline: 'Vector Drawing & Sketchbook',
       description: 'Intuitive vector drawing, coloring & sketch pad with 100K+ downloads. Built using Custom View, Kotlin, MVVM architecture, and Firebase.',
       badge: '100K+ DOWNLOADS',
       badgeType: 'accent',
-      techStack: ['Kotlin', 'Custom View', 'MVVM', 'Firebase'],
+      techStack: ['Android', 'Kotlin', 'Custom View', 'MVVM', 'Firebase', 'Multi-language'],
       engineStats: {
-        label: 'SKETCH_ENGINE_V2',
+        label: 'Performance',
         value: '60 FPS',
-        sublabel: 'Zero-latency stroke interpolation & smoothing'
+        sublabel: 'Low-latency stroke rendering'
       },
-      category: 'playstore',
+      category: 'own',
       mockupType: 'drawing',
       actionUrl: 'https://play.google.com/store/apps/details?id=com.lahsuak.apps.paint',
       actionText: 'Google Play',
@@ -114,42 +117,19 @@ const rawPortfolioData: PortfolioData = {
       screenshotUrl: '/images/apps/paint.png'
     },
     {
-      id: 'sangeet',
-      name: 'Sangeet — Offline Music Player',
-      tagline: 'Media3 Session Host',
-      description: 'Privacy-first local audio orchestrator with 10K+ downloads. Built on Jetpack Media3 ExoPlayer, custom equalizer profiles, and automated ID3 metadata tagging.',
-      badge: '10K+ DOWNLOADS',
-      badgeType: 'secondary',
-      techStack: ['Media3', 'ExoPlayer', 'Room', 'Kotlin'],
-      engineStats: {
-        label: 'MEDIA3_SESSION_HOST',
-        value: 'LOW LATENCY',
-        sublabel: 'Zero-buffer background playback service'
-      },
-      category: 'playstore',
-      mockupType: 'audio',
-      actionUrl: 'https://play.google.com/store/apps/details?id=com.lasuak.musicplayer',
-      actionText: 'Google Play',
-      actionType: 'playstore',
-      featured: true,
-      iconUrl: '/images/projects/sangeet_preview.png',
-      previewImageUrl: '/images/apps/sangeet.png',
-      screenshotUrl: '/images/apps/sangeet.png'
-    },
-    {
       id: 'tasks',
       name: 'Tasks: To-do lists & Reminders',
-      tagline: 'Room SQL Engine',
-      description: 'Fluid task, subtask and checklist manager emphasizing zero cognitive overhead, tag categorization, scheduled reminder notifications, and dark UI.',
+      tagline: 'Task Lists & Reminders',
+      description: 'Task, subtask and checklist manager built with Jetpack Compose, Room database for offline persistence, and WorkManager for scheduled notifications.',
       badge: 'PRODUCTIVITY',
       badgeType: 'secondary',
-      techStack: ['Jetpack Compose', 'Room', 'WorkManager'],
+      techStack: ['Android', 'Kotlin', 'Jetpack Compose', 'Room', 'Notification', 'WorkManager', 'Multi-language', 'MVVM'],
       engineStats: {
-        label: 'ROOM_SQL_ENGINE',
-        value: 'OFFLINE FIRST',
-        sublabel: 'Instant reactive flow updates with Room'
+        label: 'Persistence',
+        value: 'Room DB',
+        sublabel: 'Offline-first reactive architecture'
       },
-      category: 'playstore',
+      category: 'own',
       mockupType: 'task-list',
       actionUrl: 'https://play.google.com/store/apps/details?id=com.lahsuak.apps.tasks',
       actionText: 'Google Play',
@@ -162,48 +142,211 @@ const rawPortfolioData: PortfolioData = {
     {
       id: 'app-manager',
       name: 'Quick Launcher & App Manager',
-      tagline: 'Package Inspector',
-      description: 'Easier, advanced App Manager and quick app launcher. Deep diagnostic inspection of installed packages, manifest permission flags, signature hashes, and instant APK sharing.',
+      tagline: 'Package Inspector & Launcher',
+      description: 'Advanced app manager and quick launcher for inspecting installed packages, manifest permissions, signature details, and sharing APKs.',
       badge: 'SYSTEM UTILITY',
       badgeType: 'secondary',
-      techStack: ['PackageManager', 'Kotlin', 'Room'],
+      techStack: ['Android', 'Jetpack Compose', 'Device Info', 'Kotlin', 'Room', 'MVVM'],
       engineStats: {
-        label: 'PACKAGE_INSPECTOR',
-        value: 'DEEP AUDIT',
-        sublabel: 'Instant search across 200+ installed packages'
+        label: 'Diagnostics',
+        value: 'Deep Audit',
+        sublabel: 'Fast search across installed apps'
       },
-      category: 'playstore',
+      category: 'own',
       mockupType: 'package-grid',
       actionUrl: 'https://play.google.com/store/apps/details?id=com.lahsuak.apps.appmanager',
       actionText: 'Google Play',
       actionType: 'playstore',
-      featured: false,
+      featured: true,
       iconUrl: '/images/apps/appmanager.png',
-      previewImageUrl: '/images/projects/appmanager_shot.png',
-      screenshotUrl: '/images/projects/appmanager_shot.png'
+      previewImageUrl: '/images/projects/appmanager_feature.png',
+      screenshotUrl: '/images/projects/appmanager_feature.png'
+    },
+    {
+      id: 'sangeet',
+      name: 'Sangeet — Offline Music Player',
+      tagline: 'Offline Music Player',
+      description: 'Offline audio player with 10K+ downloads. Built with Jetpack Media3 ExoPlayer, custom equalizer profiles, and local audio metadata indexing.',
+      badge: '10K+ DOWNLOADS',
+      badgeType: 'secondary',
+      techStack: ['Android', 'Kotlin', 'Media3', 'ExoPlayer', 'Foreground Service', 'XML Views', 'MVVM'],
+      engineStats: {
+        label: 'Audio Engine',
+        value: 'ExoPlayer',
+        sublabel: 'Background playback service'
+      },
+      category: 'own',
+      mockupType: 'audio',
+      actionUrl: 'https://play.google.com/store/apps/details?id=com.lasuak.musicplayer',
+      actionText: 'Google Play',
+      actionType: 'playstore',
+      featured: true,
+      iconUrl: '/images/projects/sangeet_preview.png',
+      previewImageUrl: '/images/apps/sangeet.png',
+      screenshotUrl: '/images/apps/sangeet.png'
     },
     {
       id: 'studyghar',
       name: 'StudyGhar Stationery',
       tagline: 'Online Stationery Store',
-      description: 'Online stationery e-commerce application delivering books, office supplies, and school materials at reasonable prices with localized product catalogs.',
+      description: 'Online stationery e-commerce application delivering books, office supplies, and school materials with localized product catalogs and offline cart caching.',
       badge: 'E-COMMERCE',
       badgeType: 'secondary',
-      techStack: ['Kotlin', 'MVVM', 'Room', 'Retrofit'],
+      techStack: ['Android', 'Kotlin', 'Flow', 'Coroutines', 'Firebase', 'E-Commerce', 'MVVM'],
       engineStats: {
-        label: 'RETAIL_CATALOG',
-        value: 'INSTANT SYNC',
-        sublabel: 'Cart caching & high-speed checkout pipeline'
+        label: 'Catalog',
+        value: 'Offline Cache',
+        sublabel: 'Localized product store'
       },
-      category: 'playstore',
+      category: 'own',
       mockupType: 'ecommerce',
       actionUrl: 'https://play.google.com/store/apps/details?id=com.kaushalvasava.org.apps.studygharstationery',
       actionText: 'Google Play',
       actionType: 'playstore',
-      featured: false,
+      featured: true,
       iconUrl: '/images/projects/studyghar_icon.png',
       previewImageUrl: '/images/projects/studyghar_shot.png',
       screenshotUrl: '/images/projects/studyghar_shot.png'
+    },
+
+    // 2. Companies & Freelance Work Apps (9 apps)
+    {
+      id: 'onlocation-mobile',
+      name: 'OnLocation Mobile (WOL Mobile)',
+      tagline: 'Workplace Safety & Lone Worker Protection',
+      description: 'Enterprise workplace safety companion app for MRI OnLocation. Features automated background geofenced sign-in/out, desk booking, and emergency SOS alerts with real-time location sharing.',
+      badge: 'ENTERPRISE / MRI',
+      badgeType: 'accent',
+      techStack: ['Android', 'Jetpack Compose', 'Geofencing', 'WorkManager', 'Offline Sync', 'Satellite Connectivity', 'Paging 3', 'Google Maps', 'Location Services', 'Notification', 'Room', 'MVC', 'MVVM'],
+      engineStats: {
+        label: 'Location',
+        value: 'Geofencing',
+        sublabel: 'Automated check-in & emergency SOS'
+      },
+      category: 'commercial',
+      mockupType: 'marketplace',
+      actionUrl: 'https://play.google.com/store/apps/details?id=com.whosonlocation.wolmobile2',
+      actionText: 'Google Play',
+      actionType: 'playstore',
+      featured: true,
+      iconUrl: '/images/projects/onlocation_icon.png',
+      previewImageUrl: '/images/projects/onlocation_feature.png',
+      screenshotUrl: '/images/projects/onlocation_feature.png'
+    },
+    {
+      id: 'palace-liquid',
+      name: 'Palace — Property Inspections',
+      tagline: 'Property Condition Audits',
+      description: 'Mobile inspection and condition reporting application for property managers in the Palace Liquid ecosystem. Conduct on-site photo/video condition audits, assign work orders, and sync data back to the central database.',
+      badge: 'ENTERPRISE / MRI',
+      badgeType: 'accent',
+      techStack: ['Kotlin', 'Android', 'CameraX', 'Realm', 'REST API', 'WorkManager', 'Google Maps', 'MVP', 'Notification'],
+      engineStats: {
+        label: 'Sync Pipeline',
+        value: 'Offline Sync',
+        sublabel: 'On-site condition audits with auto-sync'
+      },
+      category: 'commercial',
+      mockupType: 'marketplace',
+      actionUrl: 'https://play.google.com/store/apps/details?id=com.realbaselive.liquidpalace',
+      actionText: 'Google Play',
+      actionType: 'playstore',
+      featured: true,
+      iconUrl: '/images/projects/palace_icon.png',
+      previewImageUrl: '/images/projects/palace_feature.png',
+      screenshotUrl: '/images/projects/palace_feature.png'
+    },
+    {
+      id: 'mri-myplace',
+      name: 'MRI MyPlace',
+      tagline: 'Tenant & Owner Portal',
+      description: 'Flagship tenant and landlord engagement application developed for MRI Software. Enables tenants to log maintenance requests with photos, view lease timelines, and review inspection notices, while property owners track financials in real time.',
+      badge: 'GLOBAL ENTERPRISE',
+      badgeType: 'accent',
+      techStack: ['React Native', 'Android', 'iOS', 'Web', 'Expo', 'Redux Toolkit', 'REST API', 'Clarity', 'GA4', 'Firebase', 'Notification'],
+      engineStats: {
+        label: 'Architecture',
+        value: 'Compose + MVI',
+        sublabel: 'Tenant and owner engagement'
+      },
+      category: 'commercial',
+      mockupType: 'marketplace',
+      actionUrl: 'https://play.google.com/store/apps/details?id=com.mri.myplace',
+      actionText: 'Google Play',
+      actionType: 'playstore',
+      featured: true,
+      iconUrl: '/images/projects/mri_myplace_icon.png',
+      previewImageUrl: '/images/projects/mri_myplace_feature.png',
+      screenshotUrl: '/images/projects/mri_myplace_feature.png'
+    },
+    {
+      id: 'proptechlabs-pm',
+      name: 'Proptech Labs Property Manager',
+      tagline: 'Digital Inspection & Maintenance',
+      description: 'End-to-end inspection, maintenance triage, and tenant communication suite for real estate agencies. Features compliant report templates, voice-to-text dictation, and trust accounting integrations.',
+      badge: 'PROPTECH / B2B',
+      badgeType: 'secondary',
+      techStack: ['Flutter', 'Dart', 'GetX', '360 Camera', 'Inspection'],
+      engineStats: {
+        label: 'Workflows',
+        value: 'Templates',
+        sublabel: 'Routine inspection reporting'
+      },
+      category: 'commercial',
+      mockupType: 'marketplace',
+      actionUrl: 'https://play.google.com/store/apps/details?id=com.proptechlabs.pm',
+      actionText: 'Google Play',
+      actionType: 'playstore',
+      featured: true,
+      iconUrl: '/images/projects/proptechlabs_icon.png',
+      previewImageUrl: '/images/projects/proptechlabs_feature.png',
+      screenshotUrl: '/images/projects/proptechlabs_feature.png'
+    },
+    {
+      id: 'bricks-tenant',
+      name: 'B + A Tenant (Bricks+Agent)',
+      tagline: 'Maintenance Reporting & Tracking',
+      description: 'Tenant maintenance portal enabling residents to report household maintenance issues in under a minute with photo evidence, chat directly with contractors, and track trade arrival times.',
+      badge: 'PROPTECH TENANT',
+      badgeType: 'secondary',
+      techStack: ['Android', 'XML Views', 'CameraX', 'Kotlin', 'Java', 'REST API', 'MVC', 'Notification'],
+      engineStats: {
+        label: 'Dispatch',
+        value: 'Live Tracking',
+        sublabel: 'Fast issue reporting with photo evidence'
+      },
+      category: 'commercial',
+      mockupType: 'marketplace',
+      actionUrl: 'https://play.google.com/store/apps/details?id=com.bricksandagent.android.tenant',
+      actionText: 'Google Play',
+      actionType: 'playstore',
+      featured: false,
+      iconUrl: '/images/projects/bricks_tenant_icon.png',
+      previewImageUrl: '/images/projects/bricks_tenant_feature.png',
+      screenshotUrl: '/images/projects/bricks_tenant_feature.png'
+    },
+    {
+      id: 'bricks-owner',
+      name: 'B + A Owner (Bricks+Agent)',
+      tagline: 'Maintenance Oversight & Approvals',
+      description: 'Property owner and landlord mobile hub for the Bricks+Agent maintenance ecosystem. Allows property owners to review contractor quotes, approve repair invoices, and track maintenance progress in real time.',
+      badge: 'PROPTECH OWNER',
+      badgeType: 'secondary',
+      techStack: ['Android', 'XML Views', 'CameraX', 'Kotlin', 'Java', 'REST API', 'MVC', 'Notification'],
+      engineStats: {
+        label: 'Approvals',
+        value: 'Instant Sign-Off',
+        sublabel: 'Trade quote & invoice review'
+      },
+      category: 'commercial',
+      mockupType: 'marketplace',
+      actionUrl: 'https://play.google.com/store/apps/details?id=com.bricksandagent.android.owner',
+      actionText: 'Google Play',
+      actionType: 'playstore',
+      featured: false,
+      iconUrl: '/images/projects/bricks_owner_icon.png',
+      previewImageUrl: '/images/projects/bricks_owner_feature.png',
+      screenshotUrl: '/images/projects/bricks_owner_feature.png'
     },
     {
       id: 'infryve',
@@ -212,11 +355,11 @@ const rawPortfolioData: PortfolioData = {
       description: 'Comprehensive B2B marketplace platform for civil engineering and construction infrastructure supplies, matching procurement teams with verified wholesale distributors.',
       badge: 'COMMERCIAL B2B',
       badgeType: 'secondary',
-      techStack: ['Jetpack Compose', 'Kotlin', 'Coroutines', 'REST'],
+      techStack: ['Android', 'Kotlin', 'Coroutines', 'REST API', 'Firebase', 'Cashfree Payment Gateway', 'E-Commerce', 'MVVM', 'Notification'],
       engineStats: {
-        label: 'B2B_PROCUREMENT',
-        value: 'SCALE READY',
-        sublabel: 'Heavy payload bulk inquiry streaming'
+        label: 'Procurement',
+        value: 'Enterprise',
+        sublabel: 'Wholesale materials marketplace'
       },
       category: 'commercial',
       mockupType: 'marketplace',
@@ -235,11 +378,11 @@ const rawPortfolioData: PortfolioData = {
       description: 'Companion merchant application giving suppliers the power to manage catalog inventories, fulfill incoming contractor orders, and track fulfillment milestones.',
       badge: 'MERCHANT APP',
       badgeType: 'secondary',
-      techStack: ['Kotlin', 'WorkManager', 'Jetpack', 'Room'],
+      techStack: ['Android', 'Kotlin', 'Coroutines', 'REST API', 'Firebase', 'MVVM', 'Notification'],
       engineStats: {
-        label: 'LOGISTICS_PIPELINE',
-        value: 'REAL TIME',
-        sublabel: 'Background order sync and status dispatch'
+        label: 'Orders',
+        value: 'Real-time',
+        sublabel: 'Merchant catalog & fulfillment'
       },
       category: 'commercial',
       mockupType: 'marketplace',
@@ -252,166 +395,30 @@ const rawPortfolioData: PortfolioData = {
       screenshotUrl: '/images/projects/infryve_seller_shot.png'
     },
     {
-      id: 'palace-liquid',
-      name: 'Palace — Property Inspections',
-      tagline: 'Enterprise Property Condition Audits',
-      description: 'Mobile inspection and condition reporting application for property managers in the Palace Liquid ecosystem. Conduct on-site photo/video condition audits, assign work orders, and seamlessly sync data back to the central desktop database.',
-      badge: 'ENTERPRISE / MRI',
-      badgeType: 'accent',
-      techStack: ['Kotlin', 'CameraX', 'Offline Sync', 'Room DB', 'REST API'],
-      engineStats: {
-        label: 'INSPECTION_ENGINE',
-        value: 'OFFLINE SYNC',
-        sublabel: 'Photo & video condition audits with auto-sync'
-      },
-      category: 'commercial',
-      mockupType: 'marketplace',
-      actionUrl: 'https://play.google.com/store/apps/details?id=com.realbaselive.liquidpalace',
-      actionText: 'Google Play',
-      actionType: 'playstore',
-      featured: true,
-      iconUrl: '/images/projects/palace_icon.png',
-      previewImageUrl: '/images/projects/palace_feature.png',
-      screenshotUrl: '/images/projects/palace_feature.png'
-    },
-    {
-      id: 'proptechlabs-pm',
-      name: 'Proptech Labs Property Manager',
-      tagline: 'Digital Inspection & Maintenance Suite',
-      description: 'End-to-end inspection, maintenance triage, and tenant communication suite for real estate agencies. Features compliant report templates, voice-to-text dictation, and trust accounting integrations.',
-      badge: 'PROPTECH / B2B',
-      badgeType: 'secondary',
-      techStack: ['Android', 'Kotlin', 'MVVM', 'Voice-to-Text', 'PDF Engine'],
-      engineStats: {
-        label: 'WORKFLOW_SUITE',
-        value: 'COLLABORATIVE',
-        sublabel: 'Digital routine & outgoing inspection pipelines'
-      },
-      category: 'commercial',
-      mockupType: 'marketplace',
-      actionUrl: 'https://play.google.com/store/apps/details?id=com.proptechlabs.pm',
-      actionText: 'Google Play',
-      actionType: 'playstore',
-      featured: true,
-      iconUrl: '/images/projects/proptechlabs_icon.png',
-      previewImageUrl: '/images/projects/proptechlabs_feature.png',
-      screenshotUrl: '/images/projects/proptechlabs_feature.png'
-    },
-    {
-      id: 'mri-myplace',
-      name: 'MRI MyPlace',
-      tagline: 'Tenant & Owner Self-Service Portal',
-      description: 'Flagship tenant and landlord engagement application developed for MRI Software. Enables tenants to log maintenance requests with photos, view lease timelines, and review inspection notices, while property owners track financials in real time.',
-      badge: 'GLOBAL ENTERPRISE',
-      badgeType: 'accent',
-      techStack: ['Kotlin', 'Jetpack Compose', 'Coroutines', 'Biometrics', 'Push Notifications'],
-      engineStats: {
-        label: 'PORTAL_ARCHITECTURE',
-        value: 'REAL-TIME',
-        sublabel: 'Dual tenant & owner self-service pipeline'
-      },
-      category: 'commercial',
-      mockupType: 'marketplace',
-      actionUrl: 'https://play.google.com/store/apps/details?id=com.mri.myplace',
-      actionText: 'Google Play',
-      actionType: 'playstore',
-      featured: true,
-      iconUrl: '/images/projects/mri_myplace_icon.png',
-      previewImageUrl: '/images/projects/mri_myplace_feature.png',
-      screenshotUrl: '/images/projects/mri_myplace_feature.png'
-    },
-    {
-      id: 'onlocation-mobile',
-      name: 'OnLocation Mobile (WOL Mobile)',
-      tagline: 'Geofenced Safety & Lone Worker Protection',
-      description: 'Enterprise workplace safety and facilities companion app for MRI OnLocation. Features automated background geofence sign-in/out, hybrid desk booking, and emergency SOS alerts with real-time GPS location sharing for at-risk workers.',
-      badge: 'WORKPLACE SAFETY',
-      badgeType: 'secondary',
-      techStack: ['Android', 'Geofencing', 'WorkManager', 'Google Maps API', 'Location Services'],
-      engineStats: {
-        label: 'SAFETY_PIPELINE',
-        value: 'GEOFENCING',
-        sublabel: 'Automated attendance & emergency SOS dispatch'
-      },
-      category: 'commercial',
-      mockupType: 'marketplace',
-      actionUrl: 'https://play.google.com/store/apps/details?id=com.whosonlocation.wolmobile2',
-      actionText: 'Google Play',
-      actionType: 'playstore',
-      featured: true,
-      iconUrl: '/images/projects/onlocation_icon.png',
-      previewImageUrl: '/images/projects/onlocation_feature.png',
-      screenshotUrl: '/images/projects/onlocation_feature.png'
-    },
-    {
-      id: 'bricks-owner',
-      name: 'B + A Owner (Bricks+Agent)',
-      tagline: 'Maintenance Oversight & Quote Approvals',
-      description: 'Property owner and landlord mobile hub for the Bricks+Agent maintenance ecosystem. Allows property owners to review contractor quotes, approve repair invoices, and track maintenance progress in real time.',
-      badge: 'PROPTECH OWNER',
-      badgeType: 'secondary',
-      techStack: ['Kotlin', 'Architecture Components', 'Secure Payments', 'Cloud Messaging'],
-      engineStats: {
-        label: 'APPROVAL_PIPELINE',
-        value: 'INSTANT SIGN-OFF',
-        sublabel: 'Real-time trade quotes and invoice approvals'
-      },
-      category: 'commercial',
-      mockupType: 'marketplace',
-      actionUrl: 'https://play.google.com/store/apps/details?id=com.bricksandagent.android.owner',
-      actionText: 'Google Play',
-      actionType: 'playstore',
-      featured: false,
-      iconUrl: '/images/projects/bricks_owner_icon.png',
-      previewImageUrl: '/images/projects/bricks_owner_feature.png',
-      screenshotUrl: '/images/projects/bricks_owner_feature.png'
-    },
-    {
-      id: 'bricks-tenant',
-      name: 'B + A Tenant (Bricks+Agent)',
-      tagline: 'Fast Maintenance Reporting & Trade Tracking',
-      description: 'Tenant maintenance portal enabling residents to report household maintenance issues in under a minute with photo evidence, chat directly with contractors, and track trade arrival times.',
-      badge: 'PROPTECH TENANT',
-      badgeType: 'secondary',
-      techStack: ['Android', 'Jetpack Compose', 'CameraX', 'WebSocket Chat', 'Real-Time Tracking'],
-      engineStats: {
-        label: 'TENANT_DISPATCH',
-        value: 'LIVE TRACKING',
-        sublabel: 'Rapid issue dispatch with trade ETA updates'
-      },
-      category: 'commercial',
-      mockupType: 'marketplace',
-      actionUrl: 'https://play.google.com/store/apps/details?id=com.bricksandagent.android.tenant',
-      actionText: 'Google Play',
-      actionType: 'playstore',
-      featured: false,
-      iconUrl: '/images/projects/bricks_tenant_icon.png',
-      previewImageUrl: '/images/projects/bricks_tenant_feature.png',
-      screenshotUrl: '/images/projects/bricks_tenant_feature.png'
-    },
-    {
       id: 'gallery',
       name: 'Gallery — Photo Manager',
-      tagline: 'Rapid Media & Album Manager',
+      tagline: 'Photo & Video Manager',
       description: 'High-performance offline gallery application for viewing photos, 4K videos, and albums with metadata filtering, quick sharing, and low-memory footprint.',
-      badge: 'MEDIA & UTILITY',
+      badge: 'FREELANCE / UTILITY',
       badgeType: 'secondary',
       techStack: ['MediaStore API', 'Kotlin', 'Glide', 'Exif'],
       engineStats: {
-        label: 'MEDIA_STORE_QUERY',
-        value: 'SUB-10MS',
-        sublabel: 'Low memory indexing of 10,000+ local media items'
+        label: 'Media Index',
+        value: 'Fast Query',
+        sublabel: 'Low-memory media indexing'
       },
-      category: 'playstore',
+      category: 'commercial',
       mockupType: 'gallery',
       actionUrl: 'https://play.google.com/store/apps/details?id=photo.gallery.photo.album.photosmanager',
       actionText: 'Google Play',
       actionType: 'playstore',
       featured: false,
-      iconUrl: '/images/projects/gallery_shot.png',
-      previewImageUrl: '/images/projects/gallery_shot.png',
+      iconUrl: '/images/projects/gallery_icon.png',
+      previewImageUrl: '/images/projects/gallery_feature.png',
       screenshotUrl: '/images/projects/gallery_shot.png'
     },
+
+    // 3. GitHub Projects (2 projects)
     {
       id: 'xphotogram',
       name: 'XPhotogram Multiplatform',
@@ -421,9 +428,9 @@ const rawPortfolioData: PortfolioData = {
       badgeType: 'secondary',
       techStack: ['KMP', 'Compose Multiplatform', 'Ktor', 'SQLDelight'],
       engineStats: {
-        label: 'COMPOSE_MULTIPLATFORM',
-        value: 'IOS + ANDROID',
-        sublabel: 'Single Kotlin codebase for both platforms'
+        label: 'Multiplatform',
+        value: 'iOS + Android',
+        sublabel: 'Shared Kotlin logic and UI'
       },
       category: 'opensource',
       mockupType: 'kmp-code',
@@ -439,14 +446,14 @@ const rawPortfolioData: PortfolioData = {
       id: 'compose-basics',
       name: 'Jetpack Compose Basics',
       tagline: 'Modern Android UI Reference',
-      description: 'Beginner to advanced open-source reference showcasing declarative UI patterns, state hoisting, custom layouts, and smooth transition animations in Jetpack Compose.',
+      description: 'Open-source reference showcasing declarative UI patterns, state hoisting, custom layouts, and smooth transition animations in Jetpack Compose.',
       badge: 'OPEN SOURCE',
       badgeType: 'secondary',
       techStack: ['Jetpack Compose', 'Material 3', 'Kotlin', 'Coroutines'],
       engineStats: {
-        label: 'DECLARATIVE_UI',
-        value: 'M3 TOKENS',
-        sublabel: 'Idiomatic UI state patterns & clean architecture'
+        label: 'Patterns',
+        value: 'Material 3',
+        sublabel: 'State hoisting & animation patterns'
       },
       category: 'opensource',
       mockupType: 'kmp-code',
@@ -457,29 +464,6 @@ const rawPortfolioData: PortfolioData = {
       iconUrl: '/images/projects/xphotogram_preview.png',
       previewImageUrl: '/images/projects/xphotogram_shot.png',
       screenshotUrl: '/images/projects/xphotogram_shot.png'
-    },
-    {
-      id: 'documind',
-      name: 'DocuMind — PDF Scanner',
-      tagline: 'ML Kit Vision Mesh',
-      description: 'High-speed camera scanner powered by Google ML Kit with automatic quad perspective rectification, edge detection, and client-side OCR extraction.',
-      badge: 'IN ACTIVE DEV',
-      badgeType: 'secondary',
-      techStack: ['Compose', 'ML Kit', 'CameraX', 'Kotlin'],
-      engineStats: {
-        label: 'MLKIT_VISION_MESH',
-        value: 'QUAD_LOCK',
-        sublabel: 'Real-time perspective correction'
-      },
-      category: 'playstore',
-      mockupType: 'scanner',
-      actionUrl: 'https://github.com/KaushalVasava',
-      actionText: 'In Development',
-      actionType: 'internal',
-      featured: false,
-      iconUrl: '/images/projects/documind_preview.png',
-      previewImageUrl: '/images/projects/documind_shot.png',
-      screenshotUrl: '/images/projects/documind_shot.png'
     }
   ],
   caseStudies: [
@@ -488,10 +472,10 @@ const rawPortfolioData: PortfolioData = {
       category: 'RELIABILITY & STABILITY',
       subCategory: 'ANR & CRASH ANALYSIS',
       title: 'Mobile App Reliability: Raising Crash-Free Users from 89.7% to 99.8%',
-      summary: 'Diagnosed elusive concurrent race conditions inside background media ingestion pipelines.',
-      problem: 'Background media operations caused unexpected thread contention, unhandled coroutine cancellations, and periodic Main-Thread lockups resulting in ANRs and a sub-90% crash-free user rate.',
-      engineeringApproach: 'Established strict coroutine lifecycle scoping using SupervisorJob, structured cancellation hierarchies, wrapped Room database transactions with safe error boundaries, and implemented thread-safe ring-buffer queues for high-throughput media ingestion.',
-      technologies: ['CoroutineExceptionHandler', 'Systrace & Perfetto', 'LeakCanary', 'Room'],
+      summary: 'Diagnosed concurrent race conditions inside background media ingestion pipelines.',
+      problem: 'Background media operations caused thread contention, unhandled coroutine cancellations, and periodic Main-Thread lockups resulting in ANRs and a sub-90% crash-free user rate.',
+      engineeringApproach: 'Established structured coroutine lifecycles using SupervisorJob, safe Room database transaction boundaries, and thread-safe queues for media processing.',
+      technologies: ['Coroutines', 'Room', 'Systrace & Perfetto', 'LeakCanary'],
       metrics: [
         {
           label: 'Crash-Free Sessions',
@@ -513,9 +497,9 @@ const rawPortfolioData: PortfolioData = {
       subCategory: 'LEGACY TO MODERN',
       title: 'Modernizing Android UI: ViewBinding & XML to Declarative Jetpack Compose',
       summary: 'Authored an incremental migration plan replacing 45+ legacy XML layouts without halting active feature development.',
-      problem: 'Fragmented ViewBinding boilerplate, fragile two-way binding, and complex XML layout hierarchies slowed development cycles and increased state synchronization bugs.',
-      engineeringApproach: 'Designed a unified ComposeTheme design system token library, isolated mutable state inside uni-directional MVI ViewModels, and incrementally swapped out fragments screen-by-screen while keeping business logic and repository layers intact.',
-      technologies: ['Jetpack Compose', 'MVI State Machine', 'Compose Recomposition Tracing', 'Material 3'],
+      problem: 'Fragmented ViewBinding boilerplate and complex XML layout hierarchies slowed development cycles and complicated UI state synchronization.',
+      engineeringApproach: 'Designed a unified Compose theme and design tokens, isolated UI state with unidirectional ViewModels, and incrementally replaced legacy XML fragments screen-by-screen while preserving domain and repository layers.',
+      technologies: ['Jetpack Compose', 'Material 3', 'MVI Architecture', 'Coroutines'],
       metrics: [
         {
           label: 'UI Boilerplate Reduction',
@@ -524,7 +508,7 @@ const rawPortfolioData: PortfolioData = {
         },
         {
           label: 'Feature Velocity',
-          value: '2.5x Faster Delivery',
+          value: 'Faster Delivery',
           highlight: false
         }
       ]
@@ -535,9 +519,9 @@ const rawPortfolioData: PortfolioData = {
       subCategory: 'TURBOMODULES & JNI',
       title: 'React Native & Kotlin JNI: High-Throughput Background Sync Engine',
       summary: 'Bridged high-frequency cryptographic hashing and disk synchronization natively via JNI and custom TurboModules.',
-      problem: 'Serializing large JSON payloads across the legacy JavaScript bridge caused frame drops, noticeable UI freezing, and sluggish background data synchronization.',
-      engineeringApproach: 'Implemented native C++ / Kotlin TurboModules with direct JNI memory pointers and WorkManager synchronization, executing complex cryptographic verification on dedicated worker threads off the JS runtime.',
-      technologies: ['TurboModules', 'JNI Native C++ / Kotlin', 'WorkManager', 'TypeScript'],
+      problem: 'Serializing large data payloads across the standard JavaScript bridge caused frame drops and sluggish background synchronization.',
+      engineeringApproach: 'Implemented native TurboModules in Kotlin with WorkManager background scheduling, moving data-intensive hashing and file synchronization off the JavaScript thread onto dedicated background workers.',
+      technologies: ['React Native TurboModules', 'Kotlin', 'WorkManager', 'TypeScript'],
       metrics: [
         {
           label: 'Sync Latency',
@@ -557,49 +541,49 @@ const rawPortfolioData: PortfolioData = {
       title: 'Android Ecosystem',
       icon: 'Smartphone',
       skills: [
-        'Kotlin (Expert)',
+        'Kotlin',
         'Jetpack Compose & Material 3',
         'Coroutines & Asynchronous Flow',
         'Room Database & SQLite',
         'WorkManager & Services'
       ],
-      tag: 'ARCH: MVI / MVVM / Clean'
+      tag: 'Clean Architecture · MVI / MVVM'
     },
     {
-      title: 'Networking & Arch',
+      title: 'Networking & Architecture',
       icon: 'Network',
       skills: [
-        'Ktor Client (Multiplatform)',
         'Retrofit & OkHttp',
+        'Ktor Client (Multiplatform)',
         'Kotlinx Serialization',
         'Dagger Hilt & Koin DI',
         'SQLDelight Persistent Cache'
       ],
-      tag: 'PATTERNS: Offline-First Caching'
+      tag: 'Offline-First & Reactive Data'
     },
     {
       title: 'Cross-Platform',
       icon: 'Layers',
       skills: [
         'Kotlin Multiplatform (KMP)',
-        'Compose Multiplatform (Desktop/iOS)',
+        'Compose Multiplatform',
         'React Native & TypeScript',
         'Native Modules & JNI Bridge',
         'Decompose Navigation'
       ],
-      tag: 'STRATEGY: Maximum Code Share'
+      tag: 'Shared Logic & Native UI'
     },
     {
       title: 'Quality & Release',
       icon: 'CheckCircle2',
       skills: [
-        'GitHub Actions CI/CD Pipeline',
+        'CI/CD & GitHub Actions',
         'Google Play Console Deployment',
-        'ProGuard / R8 Optimization',
-        'Android Studio Profiler & ANR',
-        'JUnit, Mockk & Turbine'
+        'ProGuard & R8 Optimization',
+        'Android Studio Profiler (Memory, CPU, ANR)',
+        'JUnit & Mockk Unit Testing'
       ],
-      tag: 'TARGET: Zero Crashes in Production'
+      tag: 'Performance & Production Quality'
     }
   ],
   articles: [
@@ -655,23 +639,23 @@ const rawPortfolioData: PortfolioData = {
     {
       id: 'android-dev',
       title: 'Android App Development',
-      description: 'Full-cycle native application engineering using Kotlin and Jetpack Compose. Clean MVI/MVVM architecture, fluid animations, offline database persistence, and Google Play Store submission ready.',
+      description: 'Full-cycle native Android development using Kotlin and Jetpack Compose with clean architecture, offline caching, and Google Play Store deployment.',
       icon: 'Smartphone',
       actionText: 'Discuss Android Project',
       targetAnchor: '#contact'
     },
     {
       id: 'cross-platform',
-      title: 'Cross-Platform Mobile (KMP / RN)',
-      description: 'Ship to both Android and iOS simultaneously while preserving native feel and execution performance. Shared business logic, cross-platform networking, and tailored platform native bridges.',
+      title: 'Cross-Platform Mobile Development',
+      description: 'Cross-platform app development using Kotlin Multiplatform and React Native, sharing business logic while retaining native UI responsiveness.',
       icon: 'Repeat',
       actionText: 'Discuss Cross-Platform',
       targetAnchor: '#contact'
     },
     {
       id: 'audit-tuning',
-      title: 'App Audit & Performance Tuning',
-      description: 'Diagnose ANR bottlenecks, memory leaks, and janky scrolling. Comprehensive profiling reports with actionable remediation to elevate Google Play vitals and crash-free session metrics.',
+      title: 'App Audit & Performance Optimization',
+      description: 'Diagnostic profiling to resolve ANR freezes, memory leaks, and UI frame drops to improve crash-free rates and Google Play vitals.',
       icon: 'Gauge',
       actionText: 'Request App Audit',
       targetAnchor: '#contact'

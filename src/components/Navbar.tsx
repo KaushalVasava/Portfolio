@@ -27,11 +27,11 @@ export default function Navbar() {
 
   const navLinks = [
     { label: 'Work', href: '#work' },
-    { label: 'Reviews', href: '#testimonials' },
     { label: 'Case Studies', href: '#case-studies' },
     { label: 'Expertise', href: '#expertise' },
     { label: 'Writing', href: '#writing' },
     { label: 'About', href: '#about' },
+    { label: 'Services', href: '#services' },
     { label: 'Contact', href: '#contact' },
   ];
 

@@ -12,7 +12,9 @@ import {
 import { portfolioData } from '@/data/portfolio';
 import ProjectCard from './ProjectCard';
 
-type CategoryFilter = 'all' | 'playstore' | 'commercial' | 'opensource';
+type CategoryFilter = 'all' | 'own' | 'commercial' | 'opensource';
+
+const INITIAL_PROJECT_COUNT = 6;
 
 export default function Projects() {
   const { projects } = portfolioData;
@@ -21,6 +23,7 @@ export default function Projects() {
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
   const [activeIndex, setActiveIndex] = useState(0);
+  const [isExpanded, setIsExpanded] = useState(false);
 
   const carouselRef = useRef<HTMLDivElement>(null);
   const isDragging = useRef(false);
@@ -29,22 +32,29 @@ export default function Projects() {
 
   const filteredProjects = projects.filter((p) => {
     if (activeFilter === 'all') return true;
-    if (activeFilter === 'playstore') return p.category === 'playstore' || p.actionType === 'playstore';
+    if (activeFilter === 'own') return p.category === 'own' || p.category === 'playstore';
+    if (activeFilter === 'commercial') return p.category === 'commercial';
+    if (activeFilter === 'opensource') return p.category === 'opensource';
     return p.category === activeFilter;
   });
 
+  const displayedProjects = isExpanded
+    ? filteredProjects
+    : filteredProjects.slice(0, INITIAL_PROJECT_COUNT);
+  const hasMore = filteredProjects.length > INITIAL_PROJECT_COUNT;
+
   const counts = {
     all: projects.length,
-    playstore: projects.filter((p) => p.category === 'playstore' || p.actionType === 'playstore').length,
+    own: projects.filter((p) => p.category === 'own' || p.category === 'playstore').length,
     commercial: projects.filter((p) => p.category === 'commercial').length,
     opensource: projects.filter((p) => p.category === 'opensource').length,
   };
 
   const tabs: { id: CategoryFilter; label: string; count: number }[] = [
     { id: 'all', label: 'All Projects', count: counts.all },
-    { id: 'playstore', label: 'Google Play Apps', count: counts.playstore },
-    { id: 'commercial', label: 'Commercial & B2B', count: counts.commercial },
-    { id: 'opensource', label: 'Open Source & KMP', count: counts.opensource },
+    { id: 'own', label: 'Own Apps', count: counts.own },
+    { id: 'commercial', label: 'Company & Freelance', count: counts.commercial },
+    { id: 'opensource', label: 'GitHub Projects', count: counts.opensource },
   ];
 
   const updateScrollState = useCallback(() => {
@@ -58,8 +68,8 @@ export default function Projects() {
     const firstCard = el.firstElementChild as HTMLElement | null;
     const cardWidth = firstCard ? firstCard.offsetWidth + 24 : 400;
     const idx = Math.round(scrollLeft / cardWidth);
-    setActiveIndex(Math.min(Math.max(idx, 0), filteredProjects.length - 1));
-  }, [filteredProjects.length]);
+    setActiveIndex(Math.min(Math.max(idx, 0), Math.max(displayedProjects.length - 1, 0)));
+  }, [displayedProjects.length]);
 
   useEffect(() => {
     const el = carouselRef.current;
@@ -242,7 +252,7 @@ export default function Projects() {
               <span className="w-1.5 h-1.5 rounded-full bg-accent-lime animate-pulse" />
               <span>Swipe or drag horizontally</span>
               <span className="text-accent-lime font-bold">
-                ({activeIndex + 1} / {filteredProjects.length})
+                ({activeIndex + 1} / {displayedProjects.length})
               </span>
             </div>
           )}
@@ -260,7 +270,7 @@ export default function Projects() {
               onMouseMove={handleMouseMove}
               className="flex gap-6 overflow-x-auto scroll-smooth snap-x snap-mandatory pb-6 pt-1 cursor-grab active:cursor-grabbing select-none [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
             >
-              {filteredProjects.map((project, idx) => (
+              {displayedProjects.map((project) => (
                 <div
                   key={project.id}
                   className="min-w-[85vw] sm:min-w-[340px] md:min-w-[380px] lg:min-w-[400px] max-w-[420px] snap-start shrink-0 flex flex-col"
@@ -274,7 +284,7 @@ export default function Projects() {
             <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-subtle-border/40">
               {/* Pagination Dots */}
               <div className="flex items-center gap-1.5 overflow-x-auto max-w-full py-1">
-                {filteredProjects.map((_, i) => (
+                {displayedProjects.map((_, i) => (
                   <button
                     key={i}
                     type="button"
@@ -289,18 +299,24 @@ export default function Projects() {
                 ))}
               </div>
 
-              {/* Quick Counter & Reel CTA */}
+              {/* Quick Counter & Expand CTA */}
               <div className="flex items-center gap-4 text-xs font-mono text-secondary-text">
                 <span>
                   Showing <strong className="text-primary-text">{activeIndex + 1}</strong> of{' '}
-                  <strong className="text-accent-lime">{filteredProjects.length}</strong> apps
+                  <strong className="text-accent-lime">{displayedProjects.length}</strong> apps
+                  {!isExpanded && hasMore && (
+                    <span className="text-secondary-text/70"> ({filteredProjects.length} total)</span>
+                  )}
                 </span>
 
                 <span className="text-subtle-border">•</span>
 
                 <button
                   type="button"
-                  onClick={() => setViewMode('grid')}
+                  onClick={() => {
+                    setIsExpanded(true);
+                    setViewMode('grid');
+                  }}
                   className="text-accent-lime hover:underline inline-flex items-center gap-1 font-semibold"
                 >
                   <span>Expand All in Grid</span>
@@ -313,16 +329,27 @@ export default function Projects() {
           /* Grid View */
           <div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {filteredProjects.map((project) => (
+              {displayedProjects.map((project) => (
                 <ProjectCard key={project.id} project={project} />
               ))}
             </div>
 
-            <div className="mt-8 pt-4 border-t border-subtle-border/40 flex justify-end">
+            <div className="mt-8 pt-4 border-t border-subtle-border/40 flex flex-wrap items-center justify-between gap-4">
+              {hasMore && (
+                <button
+                  type="button"
+                  onClick={() => setIsExpanded(!isExpanded)}
+                  className="font-mono text-xs text-accent-lime hover:underline inline-flex items-center gap-1.5 font-semibold"
+                >
+                  <span>{isExpanded ? 'Show Fewer Projects' : `View All Projects (${filteredProjects.length})`}</span>
+                  <ArrowRight className={`w-3 h-3 transition-transform ${isExpanded ? '-rotate-90' : ''}`} />
+                </button>
+              )}
+
               <button
                 type="button"
                 onClick={() => setViewMode('carousel')}
-                className="font-mono text-xs text-accent-lime hover:underline flex items-center gap-1.5"
+                className="font-mono text-xs text-secondary-text hover:text-accent-lime flex items-center gap-1.5 ml-auto"
               >
                 <SlidersHorizontal className="w-3.5 h-3.5" />
                 <span>Switch back to compact Swipe view</span>

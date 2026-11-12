@@ -12,7 +12,7 @@ export interface Project {
     value: string;
     sublabel: string;
   };
-  category?: 'all' | 'playstore' | 'commercial' | 'opensource';
+  category?: 'all' | 'own' | 'playstore' | 'commercial' | 'opensource';
   mockupType: 'drawing' | 'audio' | 'scanner' | 'kmp-code' | 'package-grid' | 'task-list' | 'ecommerce' | 'marketplace' | 'gallery' | 'pos';
   actionUrl?: string;
   actionText?: string;

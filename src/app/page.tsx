@@ -2,7 +2,6 @@ import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
 import Metrics from '@/components/Metrics';
 import Projects from '@/components/Projects';
-import Testimonials from '@/components/Testimonials';
 import CaseStudies from '@/components/CaseStudies';
 import Skills from '@/components/Skills';
 import Writing from '@/components/Writing';
@@ -18,7 +17,6 @@ export default function Home() {
         <Hero />
         <Metrics />
         <Projects />
-        <Testimonials />
         <CaseStudies />
         <Skills />
         <Writing />
